@@ -3,6 +3,7 @@ import { Button } from "../components/ui/button";
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import { X, Calendar, Clock, User } from "lucide-react";
+import DOMPurify from 'dompurify';
 
 // Animation variants
 const containerVariants = {
@@ -150,7 +151,7 @@ function BlogModal({ blog, onClose }: { blog: any; onClose: () => void }) {
           <div className="mb-8">
             <div className="text-gray-700 dark:text-gray-300 leading-7 space-y-6 text-base">
               {blog.content ? (
-                <div dangerouslySetInnerHTML={{ __html: blog.content }} />
+                <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(blog.content) }} />
               ) : (
                 <>
                   <p>

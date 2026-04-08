@@ -2035,8 +2035,8 @@ const Step1CompanyCategory: React.FC<Step1CompanyCategoryProps> = ({
           "https://ocr.meon.co.in/get_token",
           {
             "company_id": "67132",
-            "email": "dev@ipageums.com",
-            "password": "dev@ipageums.com"
+            "email": import.meta.env.VITE_MEON_EMAIL,
+            "password": import.meta.env.VITE_MEON_PASSWORD
           },
           {
             headers: {

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { X, Calendar, User, ArrowRight } from 'lucide-react';
+import DOMPurify from 'dompurify';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { Button } from './ui/button';
 
@@ -173,7 +174,7 @@ export default function Blog({ blogData }) {
                 <h2 className="text-2xl font-bold text-card-foreground mb-6">{selectedPost.title}</h2>
                 <div
                   className="prose prose-gray max-w-none text-card-foreground"
-                  dangerouslySetInnerHTML={{ __html: selectedPost.content }}
+                  dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(selectedPost.content) }}
                 />
               </div>
 

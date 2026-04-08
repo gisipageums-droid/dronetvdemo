@@ -1,6 +1,7 @@
 import { Card, CardContent } from "../components/ui/card";
 import { Button } from "../components/ui/button";
 import { useState, useEffect } from "react";
+import DOMPurify from 'dompurify';
 // import blog1 from "/images/blog/blog1.jpg";
 // import blog2 from "/images/blog/blog2.jpg";
 // import blog3 from "/images/blog/blog3.jpg";
@@ -151,7 +152,7 @@ function BlogModal({ blog, onClose }: { blog: any; onClose: () => void }) {
           {/* Main Content */}
           <div className="text-gray-700 dark:text-gray-300 leading-7 space-y-4 text-sm ">
             {blog.content ? (
-              <div dangerouslySetInnerHTML={{ __html: blog.content }} />
+              <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(blog.content) }} />
             ) : (
               <>
                 <p>

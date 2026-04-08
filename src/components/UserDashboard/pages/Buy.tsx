@@ -91,7 +91,7 @@ const BuyTokenPage: React.FC = () => {
 
           // Step 2: Initialize Razorpay Payment
           const options: RazorpayOrderOptions = {
-            key: key || "rzp_test_sN9yGpladGdVuN", // Use key from API response
+            key: key || import.meta.env.VITE_RAZORPAY_KEY, // Use key from API response
             amount: order.amount, // Amount in paise from API
             currency: order.currency,
             name: "DRONETV",

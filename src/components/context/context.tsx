@@ -88,6 +88,8 @@ export const UserAuthProvider: React.FC<UserAuthProviderProps> = ({
       ...userData,
       timestamp: new Date().toISOString(),
     };
+    // Note: Storing sensitive data in localStorage is not ideal for security.
+    // Recommended: Use Secure, HttpOnly cookies for session tokens.
     localStorage.setItem("user", JSON.stringify(userToStore));
     if (userData.token) {
       localStorage.setItem("token", userData.token);
